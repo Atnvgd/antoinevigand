@@ -1,4 +1,206 @@
-<!-- Experience Section (Full Width + Portfolio) -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antoine Vigand - Digital Resume & Portfolio</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Custom Colors and Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Animations -->
+    <style>
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/80 border-b border-slate-200 shadow-sm" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-bold text-xl tracking-tight text-slate-900">A<span class="text-brand-600">.</span>Vigand</a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#profil" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Profile</a>
+                    <a href="#expertise" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Expertise</a>
+                    <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Experience</a>
+                    <a href="#formation" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Education</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#profil" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-md">Profile</a>
+                <a href="#expertise" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-md">Expertise</a>
+                <a href="#experience" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-md">Experience</a>
+                <a href="#formation" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-md">Education</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Header Section -->
+    <header class="pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden relative">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+            <div class="absolute top-48 -left-24 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 fade-in-section">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+                <!-- Text Content -->
+                <div class="w-full md:w-2/3 text-center md:text-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-4">
+                        Antoine <span class="text-brand-600">Vigand</span>
+                    </h1>
+                    <h2 class="text-xl sm:text-2xl font-medium text-slate-600 mb-8 leading-snug">
+                        Digital Content & Sport Communication <br class="hidden sm:block">
+                        <span class="text-brand-500 font-semibold text-lg sm:text-xl">| Master's in Sports Management</span>
+                    </h2>
+                    
+                    <!-- Contact Info Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-600 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-brand-600 flex-shrink-0">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <span>+41 78 751 53 06</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-brand-600 flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <a href="mailto:vigand.anto@gmail.com" class="hover:text-brand-600 transition-colors">vigand.anto@gmail.com</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-brand-600 flex-shrink-0">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <a href="https://www.linkedin.com/in/antoine-vigand-73949b23b/" target="_blank" class="hover:text-brand-600 transition-colors">linkedin.com/in/antoine-vigand</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-brand-600 flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <span>1117 Grancy, Switzerland</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-brand-600 flex-shrink-0">
+                                <i class="fa-solid fa-car"></i>
+                            </div>
+                            <span>Driving License (B / BE)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-brand-600 flex-shrink-0">
+                                <i class="fa-solid fa-language"></i>
+                            </div>
+                            <span>FR (Native), EN (C1), DE (B2)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile Picture (Updated with your local Git path) -->
+                <div class="w-48 h-48 sm:w-64 sm:h-64 flex-shrink-0 relative">
+                    <div class="absolute inset-0 rounded-full border-4 border-brand-100 opacity-50 scale-110"></div>
+                    <img src="./assets/cv_pic.jpg" alt="Antoine Vigand" class="rounded-full w-full h-full object-cover shadow-xl border-4 border-white relative z-10 transition-transform duration-500 hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile & Expertise Section -->
+    <section id="profil" class="py-16 bg-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                
+                <!-- About Me -->
+                <div class="lg:col-span-2 fade-in-section">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-px bg-brand-600 w-12"></div>
+                        <h3 class="text-3xl font-bold text-slate-900 uppercase tracking-wider text-sm">Profile</h3>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed text-lg text-justify">
+                        Graduated with a Master's in Sports Management from the University of Lausanne (ISSUL), specializing in digital communication, project management, and sports event coordination. Combining a solid academic background with demanding field experiences <span class="font-medium text-slate-900">(Ballon d'Or, L'Équipe, UEFA, LUC Volleyball, Vortex Race)</span>, I deploy a strategic, creative, and operational approach.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-lg text-justify mt-4">
+                        My daily practice of digital platform management, community management, and content production — including <span class="text-brand-600 font-semibold">a video that garnered over 200 million views and 13 million likes</span> — has allowed me to develop a deep understanding of digital engagement drivers within the sports ecosystem. Autonomous, rigorous, and results-oriented, my ambition is to transform ideas into concrete actions in dynamic and ambitious environments.
+                    </p>
+                </div>
+
+                <!-- Areas of Expertise (Tags) -->
+                <div class="fade-in-section" id="expertise">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-px bg-brand-600 w-12"></div>
+                        <h3 class="text-3xl font-bold text-slate-900 uppercase tracking-wider text-sm">Areas of Expertise</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors border border-slate-200">Digital Communication</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors border border-slate-200">Social Media Strategy</span>
+                        <span class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm font-medium border border-brand-100">Community Management</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors border border-slate-200">Video & Visual Production</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors border border-slate-200">Sponsorship Activation</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors border border-slate-200">Sports Event Management</span>
+                        <span class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm font-medium border border-brand-100">Operational Coordination</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors border border-slate-200">Sports Marketing</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors border border-slate-200">Data Analysis & Reporting</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors border border-slate-200">Project Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Full Width + Portfolio) -->
     <section id="experience" class="py-20 bg-slate-50 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-section">
@@ -46,7 +248,6 @@
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <!-- Placeholder: Image -->
                                 <div class="group relative rounded-xl overflow-hidden bg-slate-100 aspect-video">
-                                    <!-- Replace src with your local image: src="./assets/img/ballondor-web.jpg" -->
                                     <img src="https://placehold.co/600x400/e2e8f0/64748b?text=Website+Design" alt="Ballon d'Or Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                                         <span class="text-white text-sm font-medium">Ballondor.com Redesign</span>
@@ -107,7 +308,7 @@
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                 <!-- Video Embed Container -->
                                 <div class="w-full bg-slate-900 rounded-xl overflow-hidden aspect-video relative flex items-center justify-center shadow-inner">
-                                    <!-- PASTE YOUR YOUTUBE/TIKTOK/INSTAGRAM IFRAME HERE. Example below is YouTube -->
+                                    <!-- PASTE YOUR YOUTUBE/TIKTOK/INSTAGRAM IFRAME HERE -->
                                     <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=placeholder" title="Viral Volleyball Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                                 <!-- Video Context -->
@@ -185,10 +386,6 @@
                             <a href="https://vortexrace.ch" target="_blank" class="inline-flex items-center justify-center px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-brand-600 transition-colors">
                                 <i class="fa-solid fa-globe mr-2"></i> Visit Event Website
                             </a>
-                            <!-- Optional: Add a Github code link if relevant -->
-                            <a href="#" class="inline-flex items-center justify-center px-5 py-2.5 bg-slate-100 text-slate-700 text-sm font-medium rounded-lg hover:bg-slate-200 transition-colors">
-                                <i class="fa-brands fa-github mr-2"></i> View Source Code
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -196,3 +393,228 @@
             </div>
         </div>
     </section>
+
+    <!-- Education & Volunteering Section -->
+    <section id="formation" class="py-20 bg-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Education -->
+                <div class="fade-in-section">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center text-brand-600 text-xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-slate-900">Education</h2>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="relative pl-6 border-l-2 border-brand-200">
+                            <div class="absolute w-3 h-3 bg-brand-500 rounded-full -left-[7px] top-1.5 shadow-[0_0_0_4px_white]"></div>
+                            <span class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-1 rounded">2024 — 2026</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-3">Master's in Sports Management</h3>
+                            <h4 class="text-slate-600 font-medium mb-2">University of Lausanne (UNIL / ISSUL)</h4>
+                            <p class="text-sm text-slate-600">
+                                In-depth studies: event organization, strategy, marketing, and digital communication. 
+                                <br><span class="italic">Thesis on the digital professionalization of Swiss NLA volleyball clubs (Grade: 5.5/6).</span>
+                            </p>
+                        </div>
+
+                        <div class="relative pl-6 border-l-2 border-brand-200">
+                            <div class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[7px] top-1.5 shadow-[0_0_0_4px_white]"></div>
+                            <span class="text-sm font-bold text-slate-600 bg-slate-100 px-2 py-1 rounded">2020 — 2023</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-3">Bachelor's in Sports Science</h3>
+                            <h4 class="text-slate-600 font-medium mb-2">University of Lausanne</h4>
+                            <p class="text-sm text-slate-600">
+                                Minor in Humanities Computing. Multidisciplinary knowledge of the sports industry and applied digital skills.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volunteering -->
+                <div class="fade-in-section">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 text-xl">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-slate-900">Volunteering & Commitments</h2>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 space-y-6">
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-2 h-2 mt-2 rounded-full bg-emerald-500 flex-shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">UEFA Youth League 2026</h4>
+                                <p class="text-sm text-emerald-600 font-medium mb-1">UNIL Project Manager - Youth Plaza (01/2026 – Present)</p>
+                                <p class="text-sm text-slate-600">Coordination of the UNIL project: design and production of an original stand for the Youth Plaza in Nyon.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-2 h-2 mt-2 rounded-full bg-slate-400 flex-shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">UEFA Women's Euro 2025</h4>
+                                <p class="text-sm text-slate-500 font-medium mb-1">Ace Volunteer (07/2025) - Geneva</p>
+                                <p class="text-sm text-slate-600">Multi-department operational support during match days (MD-1 and MD).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-2 h-2 mt-2 rounded-full bg-slate-400 flex-shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">UEFA Youth League 2025</h4>
+                                <p class="text-sm text-slate-500 font-medium mb-1">Volunteer Youth Plaza & Ceremony (04/2025) - Nyon</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Matrix Section -->
+    <section class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Key Skills</h2>
+                <div class="w-24 h-1 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Skill Card 1 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-brand-500 transition-colors">
+                    <div class="w-10 h-10 bg-brand-500/20 text-brand-400 rounded-lg flex items-center justify-center mb-4 text-xl">
+                        <i class="fa-solid fa-hashtag"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Digital Communication</h3>
+                    <p class="text-slate-400 text-sm">Editorial strategy, community management, storytelling, expert management (Instagram, TikTok, LinkedIn, Facebook), engagement analysis.</p>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-brand-500 transition-colors">
+                    <div class="w-10 h-10 bg-brand-500/20 text-brand-400 rounded-lg flex items-center justify-center mb-4 text-xl">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Content Production</h3>
+                    <p class="text-slate-400 text-sm">Video shooting and editing, visual creation, writing impactful articles, match and event filming.</p>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-brand-500 transition-colors">
+                    <div class="w-10 h-10 bg-brand-500/20 text-brand-400 rounded-lg flex items-center justify-center mb-4 text-xl">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Project Management</h3>
+                    <p class="text-slate-400 text-sm">Multi-stakeholder coordination, strategic planning, on-site event activation, operational and logistics management.</p>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-brand-500 transition-colors">
+                    <div class="w-10 h-10 bg-brand-500/20 text-brand-400 rounded-lg flex items-center justify-center mb-4 text-xl">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Digital Tools</h3>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded text-slate-300">HTML/JS/Python</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded text-slate-300">WordPress</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded text-slate-300">Adobe Suite</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded text-slate-300">Canva</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded text-slate-300">Notion</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 5 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-brand-500 transition-colors">
+                    <div class="w-10 h-10 bg-brand-500/20 text-brand-400 rounded-lg flex items-center justify-center mb-4 text-xl">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Analysis & Strategy</h3>
+                    <p class="text-slate-400 text-sm">Performance reporting (KPIs), benchmarking, data-driven approach to optimize organic reach and engagement.</p>
+                </div>
+
+                <!-- Skill Card 6 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-brand-500 transition-colors">
+                    <div class="w-10 h-10 bg-brand-500/20 text-brand-400 rounded-lg flex items-center justify-center mb-4 text-xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Soft Skills</h3>
+                    <p class="text-slate-400 text-sm">Team spirit, high adaptability, stress management in demanding environments, execution rigor, creativity, and attention to detail.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-8 text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="mb-4">© 2026 Antoine Vigand. All rights reserved.</p>
+            <div class="flex justify-center gap-6">
+                <a href="https://www.linkedin.com/in/antoine-vigand-73949b23b/" target="_blank" class="hover:text-white transition-colors">
+                    <i class="fa-brands fa-linkedin text-xl"></i>
+                </a>
+                <a href="mailto:vigand.anto@gmail.com" class="hover:text-white transition-colors">
+                    <i class="fa-solid fa-envelope text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Intersection Observer for scroll animations (Fade in elements)
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
